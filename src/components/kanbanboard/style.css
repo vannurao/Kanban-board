@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.kanban-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.kanban-title {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.kanban-board {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+/* Mobile: Vertical Layout */
+@media (max-width: 768px) {
+    .kanban-board {
+        flex-direction: column;
+        overflow-x: visible;
+    }
+
+    .column {
+        min-width: 100% !important;
+    }
+}
+
+/* Desktop: Horizontal Layout */
+@media (min-width: 769px) {
+    .kanban-board {
+        flex-direction: row;
+    }
+
+    .column {
+        min-width: 300px;
+        flex: 1;
+    }
+}
+
+.column {
+    background: #f4f5f7;
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    background: var(--column-color);
+    border-radius: 6px;
+    color: white;
+}
+
+.column-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.task-count {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+}
+
+.add-btn {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.add-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.add-card-btn {
+    background: transparent;
+    border: 2px dashed #ddd;
+    color: #666;
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.add-card-btn:hover {
+    border-color: #999;
+    color: #333;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.column-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.25rem;
+}
+
+.column-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.column-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.column-content::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.task-card {
+    background: white;
+    border-radius: 6px;
+    padding: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: all 0.2s;
+}
+
+.task-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+.task-card-overlay {
+    cursor: grabbing;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: rotate(3deg);
+}
+
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-content span {
+    flex: 1;
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    padding: 0.25rem;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+.task-footer {
+    display: flex;
+    align-items: center;
+}
+
+.task-indicator {
+    width: 30px;
+    height: 3px;
+    background: #ddd;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .kanban-container {
+        padding: 1rem;
+    }
+
+    .kanban-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .column {
+        max-height: none;
+    }
+}
