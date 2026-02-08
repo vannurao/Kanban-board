@@ -207,7 +207,7 @@ const KanbanBoard = () => {
                             <div className="task-content">
                                 <span>{activeTask.title}</span>
                                 <button className="delete-btn">
-                                    <img src='./delete.png' width={'30px'} height={'30px'}/>
+                                    <img src='./delete.png' alt='delete' width={'30px'} height={'30px'}/>
                                 </button>
                             </div>
                             <div className="task-footer">

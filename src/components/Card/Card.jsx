@@ -34,7 +34,7 @@ const Card = ({ id, title , onDelete }) => {
             <div className="task-content">
                 <span>{title}</span>
                 <button className="delete-btn" onClick={handleDelete}>
-                    <img src='./delete.png' width={'30px'} height={'30px'}/>
+                    <img src='./delete.png' alt='delete' width={'30px'} height={'30px'}/>
                 </button>
             </div>
             <div className="task-footer">
